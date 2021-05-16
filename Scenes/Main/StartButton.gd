@@ -12,7 +12,7 @@ func _ready():
 
 
 func _on_player_update(players, host):
-	if str(get_tree().get_network_unique_id()) == str(host):
+	if str(get_tree().get_network_unique_id()) == str(host.id):
 		visible = true
 
 
