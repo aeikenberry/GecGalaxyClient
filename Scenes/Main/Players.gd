@@ -20,7 +20,7 @@ func _on_game_update(game):
 
 
 func _set_labels(players, host):
-	if players.keys() == _players.keys() and str(host) == str(_host):
+	if players.keys() == _players.keys() and str(host.id) == str(_host.id):
 		return
 	
 	for child in $PlayerCardContainer.get_children():
@@ -32,8 +32,8 @@ func _set_labels(players, host):
 		var fullName = player.name
 		var s = preload("res://Scenes/Main/PlayerCard.tscn").instance()
 		
-		if str(player_id) == str(host):
-			fullName = name + " *"
+		if str(player_id) == str(host.id):
+			fullName = fullName + " *"
 		
 		s.get_node("PlayerName").text = fullName
 		s.rect_min_size = Vector2(150, 50)
