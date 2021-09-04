@@ -11,6 +11,7 @@ func _ready():
 
 func ConnectToServer():
 	print("Connecting")
+	# TODO: Show spinner
 	network.create_client(ip, port)
 	get_tree().set_network_peer(network)
 	
@@ -19,6 +20,7 @@ func ConnectToServer():
 
 
 func _on_connection_failed():
+	# TODO: Show error message
 	print("Failed connection")
 
 

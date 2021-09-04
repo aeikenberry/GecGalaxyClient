@@ -1,34 +1,33 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/stars.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Stars/Star.gd" type="Script" id=2]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40.0983, 37.1253 )
+
 [node name="Star" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Aura" type="ColorRect" parent="."]
-margin_left = 39.0
-margin_top = 45.0
-margin_right = 100.0
-margin_bottom = 107.0
-color = Color( 0.596078, 0.611765, 0.384314, 0.360784 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 43.8903, 50.0255 )
+[node name="Sprite" type="Sprite" parent="Area2D"]
+position = Vector2( -24.5408, -18.8775 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 555, 500, 500 )
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -1.41577, 3.77549 )
+shape = SubResource( 1 )
+
 [node name="Label" type="Label" parent="."]
-margin_left = 43.8903
-margin_top = 50.0255
-margin_right = 91.8903
-margin_bottom = 102.025
+margin_left = -21.7091
+margin_top = -20.2933
+margin_right = 26.2909
+margin_bottom = 31.7062
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.85098, 0.741176, 0.741176, 1 )
 text = "100"
@@ -39,14 +38,28 @@ __meta__ = {
 }
 
 [node name="Player" type="Label" parent="."]
-visible = false
-margin_left = 53.3291
-margin_top = 109.962
-margin_right = 93.3291
-margin_bottom = 123.962
+margin_left = -17.4617
+margin_top = -51.441
+margin_right = 22.5383
+margin_bottom = -37.441
 custom_colors/font_color = Color( 0.627451, 0.619608, 0.619608, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Lines" type="Node" parent="."]
+
+[node name="Aura" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_left = -31.3188
+margin_top = -24.8469
+margin_right = 29.6812
+margin_bottom = 37.1531
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+color = Color( 0.596078, 0.611765, 0.384314, 0.360784 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

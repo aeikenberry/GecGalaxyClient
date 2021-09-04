@@ -29,4 +29,5 @@ func _on_StartButton_pressed():
 		return
 	
 	_loadem()
+	loaded = true
 	

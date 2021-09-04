@@ -36,7 +36,7 @@ func build_map(map_data):
 func build_lines(star_data, star_node):
 	var connections = star_data["connections"]
 	var my_id = star_data["id"]
-	var line_offset = 70
+	var line_offset = 0
 	
 	for star_id in connections:
 		var connection_key = str(my_id) + "_" + str(star_id)
@@ -90,3 +90,4 @@ func _on_game_update(game):
 		star_node.ships = star.ships
 		star_node.player_id = star.player
 		star_node.SetAuraColor(auras[player_ids.find(star.player)])
+

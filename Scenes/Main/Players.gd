@@ -28,8 +28,8 @@ func _set_labels(players, host):
 		child.queue_free()
 		
 	for player_id in players.keys():
-		var name = players[player_id]
-		var fullName = name
+		var player = players[player_id]
+		var fullName = player.name
 		var s = preload("res://Scenes/Main/PlayerCard.tscn").instance()
 		
 		if str(player_id) == str(host):

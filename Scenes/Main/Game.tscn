@@ -11,7 +11,22 @@
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="Players" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="PlayerCardContainer" type="GridContainer" parent="Players"]
+margin_left = 11.0
+margin_top = 568.0
+margin_right = 1038.0
+margin_bottom = 616.0
+rect_clip_content = true
+columns = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="backgrounds" type="ColorRect" parent="."]
+visible = false
 margin_left = 5.0
 margin_top = 4.0
 margin_right = 1046.0
@@ -22,6 +37,7 @@ __meta__ = {
 }
 
 [node name="Background" type="ColorRect" parent="backgrounds"]
+visible = false
 margin_left = 75.0
 margin_top = 62.0
 margin_right = 950.0
@@ -77,19 +93,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Players" type="Node" parent="."]
-script = ExtResource( 4 )
-
-[node name="PlayerCardContainer" type="GridContainer" parent="Players"]
-margin_left = 11.0
-margin_top = 568.0
-margin_right = 1038.0
-margin_bottom = 616.0
-columns = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Countdown" type="Node" parent="."]
 script = ExtResource( 5 )
 
@@ -116,6 +119,7 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="JoinButton" to="." method="_on_join_button_pressed"]
-[connection signal="pressed" from="StartButton" to="Map/Container" method="_on_StartButton_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="StartButton" to="Map/Container" method="_on_StartButton_pressed"]
