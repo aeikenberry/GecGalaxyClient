@@ -23,9 +23,13 @@ func SetAuraColor(color):
 	$Aura.color = color
 
 
-func _on_Body_mouse_entered():
-	print("Mouse entered") # Replace with function body.
-
-
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	print(event) # Replace with function body.
+
+
+func _on_Area2D_mouse_entered():
+	pass # Replace with function body.
+
+
+func _on_Area2D_mouse_exited():
+	pass # Replace with function body.

@@ -38,6 +38,7 @@ func StartGame(map_name):
 
 
 func SayHi(requestor):
+	print("Saying Hi")
 	rpc_id(1, "SayHi", requestor)
 
 

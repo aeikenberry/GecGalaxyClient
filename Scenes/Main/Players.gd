@@ -6,7 +6,7 @@ extends Node
 # var b = "text"
 
 var _players = {}
-var _host
+var _host = {"id": null}
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +20,8 @@ func _on_game_update(game):
 
 
 func _set_labels(players, host):
+	if not host:
+		return
 	if players.keys() == _players.keys() and str(host.id) == str(_host.id):
 		return
 	
